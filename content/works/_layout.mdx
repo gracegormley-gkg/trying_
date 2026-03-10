@@ -9,19 +9,19 @@ import {
   References,
 } from "@canopy-iiif/app/ui/server";
 
-{/* ── Header: title, location + completed, summary ── */}
-<Container variant="wide" className="canopy-work--header">
-  <Label manifest={props.manifest} as="h1" />
-  <div className="canopy-work--byline">
-    <MetadataField manifest={props.manifest} field="Main Location" display="inline" />
-    <MetadataField manifest={props.manifest} field="Completed" display="inline" prefix="Completed: " />
+{/* ── Hero: viewer on left, title/location/summary on right ── */}
+<Container variant="wide" className="canopy-work--hero">
+  <div className="canopy-work--viewer">
+    <Viewer iiifContent={props.manifest.id} />
   </div>
-  <Summary manifest={props.manifest} as="p" className="canopy-work--summary" />
-</Container>
-
-{/* ── Viewer: full-width image ── */}
-<Container variant="wide" className="canopy-work--viewer">
-  <Viewer iiifContent={props.manifest.id} />
+  <div className="canopy-work--header">
+    <Label manifest={props.manifest} as="h1" />
+    <div className="canopy-work--byline">
+      <MetadataField manifest={props.manifest} field="Main Location" display="inline" />
+      <MetadataField manifest={props.manifest} field="Completed" display="inline" prefix="Completed: " />
+    </div>
+    <Summary manifest={props.manifest} as="p" className="canopy-work--summary" />
+  </div>
 </Container>
 
 {/* ── Historical Context: spans the page ── */}

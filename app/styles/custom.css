@@ -14,8 +14,22 @@
 
 /* ── Work page layout ── */
 
-.canopy-work--header {
+/* Hero: viewer left, text right */
+.canopy-work--hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding-top: 1.5rem;
   padding-bottom: 0;
+}
+
+.canopy-work--viewer {
+  min-width: 0; /* prevent overflow in grid */
+}
+
+.canopy-work--header {
+  min-width: 0;
 }
 
 .canopy-work--header h1 {
@@ -36,13 +50,13 @@
 p.canopy-work--summary {
   font-size: 1rem;
   line-height: 1.6;
-  max-width: 72ch;
   margin-top: 0.5rem;
 }
 
-.canopy-work--viewer {
-  padding-top: 1.5rem;
-  padding-bottom: 0;
+@media (max-width: 768px) {
+  .canopy-work--hero {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Historical Context — full page width */
