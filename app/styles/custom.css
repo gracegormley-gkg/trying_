@@ -1,17 +1,14 @@
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════
    ENVIRONMENTAL IMPACT STATEMENT COLLECTION
-   Custom styles — green + blue environmental theme
-   ───────────────────────────────────────────── */
+   Solemn, scholarly, archival — green & slate blue
+   ═══════════════════════════════════════════════════ */
 
-/* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
-
-/* ── Site-wide accent stripe ── */
+/* ── Top accent rule ── */
 body::before {
   content: "";
   display: block;
-  height: 4px;
-  background: linear-gradient(90deg, #059669 0%, #0ea5e9 60%, #0c4a6e 100%);
+  height: 3px;
+  background: linear-gradient(90deg, #2a4120 0%, #1e3040 55%, #2c4a5c 100%);
   position: fixed;
   top: 0;
   left: 0;
@@ -19,206 +16,194 @@ body::before {
   z-index: 1000;
 }
 
-/* Nudge header down so it clears the stripe */
 header.canopy-header,
 [class*="canopy-header"] {
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
-/* ── Hero section ── */
+/* ── Work page — Hero ── */
 .canopy-work--hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
+  gap: 3rem;
   align-items: start;
-  padding-top: 2rem;
+  padding-top: 2.5rem;
   padding-bottom: 0;
 }
 
 .canopy-work--viewer {
   min-width: 0;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 4px 24px rgba(5, 150, 105, 0.12), 0 1px 4px rgba(0,0,0,0.08);
+  border: 1px solid var(--color-parchment-dk, #e0d9cd);
+  box-shadow: 4px 4px 0 #c8c0b4;
 }
 
 .canopy-work--header {
   min-width: 0;
-  padding-top: 0.5rem;
+  padding-top: 0.25rem;
 }
 
 /* Title */
 .canopy-work--header h1 {
-  font-size: 1.75rem;
-  line-height: 1.25;
-  margin-bottom: 0.75rem;
-  color: #0f3d2e;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-ink, #1a2218);
+  font-style: italic;
 }
 
-/* ── Byline pills ── */
+/* ── Byline tags ── */
 .canopy-work--byline {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-parchment-dk, #e0d9cd);
 }
 
 .canopy-work--byline > * {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  background: #d1fae5;
-  color: #065f46;
-  border: 1px solid #6ee7b7;
-  border-radius: 999px;
-  padding: 0.2rem 0.75rem;
-  font-size: 0.8rem;
-  font-family: var(--font-sans);
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  background: transparent;
+  color: var(--color-moss, #3d5c34);
+  border: 1px solid var(--color-moss-lt, #8fa882);
+  border-radius: 2px;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.75rem;
+  font-family: var(--font-sans, "DM Sans", sans-serif);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-/* Summary text */
+/* Summary */
 p.canopy-work--summary {
+  font-family: var(--font-serif, "Lora", serif);
   font-size: 1rem;
-  line-height: 1.7;
-  margin-top: 0.25rem;
-  color: #2d4a3e;
-  border-left: 3px solid #6ee7b7;
-  padding-left: 1rem;
+  line-height: 1.85;
+  color: var(--color-ink-mid, #2c3a2a);
+  font-style: italic;
 }
 
 @media (max-width: 768px) {
   .canopy-work--hero {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
-}
-
-/* ── Divider between sections ── */
-.canopy-work--divider {
-  border: none;
-  border-top: 1px solid #d1fae5;
-  margin: 0;
 }
 
 /* ── Historical Context ── */
 .canopy-work--context {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  background: linear-gradient(180deg, #f0fdf4 0%, #f8fbf9 100%);
-  border-radius: 0.5rem;
-  margin-top: 1.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  border-left: 4px solid #059669;
+  margin-top: 2.5rem;
+  padding: 2rem 2rem 2rem 2.25rem;
+  background: var(--color-sage-lt, #e8eee4);
+  border-left: 3px solid var(--color-moss, #3d5c34);
 }
 
 .canopy-work--context .canopy-metadata-field h3 {
-  font-size: 0.7rem;
-  font-family: var(--font-sans);
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--font-sans, "DM Sans", sans-serif);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #059669;
-  margin-bottom: 0.75rem;
+  color: var(--color-moss, #3d5c34);
+  margin-bottom: 1rem;
 }
 
 .canopy-work--context .canopy-metadata-field p {
-  font-size: 1rem;
-  line-height: 1.8;
-  max-width: 80ch;
-  color: #1c2b25;
+  font-family: var(--font-serif, "Lora", serif);
+  font-size: 0.98rem;
+  line-height: 1.9;
+  max-width: 76ch;
+  color: var(--color-ink, #1a2218);
 }
 
-/* ── People + Attribution grid ── */
+/* ── People + Attribution ── */
 .canopy-work--footer-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding-top: 2rem;
+  gap: 3rem;
+  padding-top: 2.5rem;
   padding-bottom: 2rem;
+  border-top: 1px solid var(--color-parchment-dk, #e0d9cd);
+  margin-top: 0.5rem;
 }
 
 .canopy-work--footer-grid .canopy-metadata-field h3 {
-  font-size: 0.7rem;
-  font-family: var(--font-sans);
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--font-sans, "DM Sans", sans-serif);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #0369a1;
+  color: var(--color-slate, #1e3040);
   margin-bottom: 0.75rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid #bae6fd;
 }
 
 .canopy-work--footer-grid .canopy-metadata-field ul {
   list-style: none;
   padding-left: 0;
-  font-size: 0.95rem;
+  font-family: var(--font-serif, "Lora", serif);
+  font-size: 0.92rem;
   line-height: 1.9;
-  color: #1c2b25;
+  color: var(--color-ink-mid, #2c3a2a);
 }
 
-.canopy-work--footer-grid .canopy-metadata-field ul li::before {
-  content: "·";
-  color: #0ea5e9;
-  font-weight: 700;
-  margin-right: 0.5rem;
+.canopy-work--footer-grid .canopy-metadata-field ul li {
+  border-bottom: 1px dotted var(--color-sage, #c8d5bf);
+  padding: 0.2rem 0;
 }
 
 @media (max-width: 640px) {
   .canopy-work--footer-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
-/* ── Related Items heading ── */
+/* ── Related Items ── */
+.canopy-work--related {
+  border-top: 1px solid var(--color-parchment-dk, #e0d9cd);
+  padding-top: 2.5rem;
+}
+
 .canopy-work--related h2 {
-  font-size: 0.75rem;
-  font-family: var(--font-sans);
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--font-sans, "DM Sans", sans-serif);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #059669;
+  color: var(--color-slate-mid, #2c4a5c);
   border-bottom: none;
   padding-bottom: 0;
-  margin-bottom: 1.25rem;
-}
-
-/* ── Homepage: hero section ── */
-.canopy-interstitials--hero {
-  background: linear-gradient(135deg, #0f3d2e 0%, #0c4a6e 100%) !important;
-}
-
-/* ── Search / results grid cards ── */
-[class*="canopy-work-card"],
-[class*="canopy-figure"] {
-  border-radius: 0.4rem;
-  overflow: hidden;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-[class*="canopy-work-card"]:hover,
-[class*="canopy-figure"]:hover {
-  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.18);
-  transform: translateY(-2px);
+  margin-bottom: 1.5rem;
 }
 
 /* ── Footer ── */
 footer.canopy-footer,
 [class*="canopy-footer"] {
-  border-top: 1px solid #d1fae5;
-  background: #0f3d2e;
-  color: #d1fae5;
+  border-top: 1px solid var(--color-parchment-dk, #e0d9cd);
+  background: var(--color-ink, #1a2218);
 }
 
 [class*="canopy-footer"] p,
 [class*="canopy-footer"] a {
-  color: #6ee7b7;
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
+  color: var(--color-moss-lt, #8fa882);
+  font-family: var(--font-sans, "DM Sans", sans-serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
 }
 
 [class*="canopy-footer"] a:hover {
-  color: #ffffff;
+  color: var(--color-sage, #c8d5bf);
+}
+
+/* ── Search result cards: subtle hover ── */
+[class*="canopy-work-card"],
+[class*="canopy-figure"] {
+  transition: box-shadow 0.2s ease;
+}
+
+[class*="canopy-work-card"]:hover,
+[class*="canopy-figure"]:hover {
+  box-shadow: 0 4px 16px rgba(26, 34, 24, 0.12);
 }
