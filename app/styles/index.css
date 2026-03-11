@@ -6,40 +6,39 @@
   :root,
   :host {
     /* ── Fonts ── */
-    --font-display: "Cormorant Garamond", "Palatino Linotype", Georgia, serif;
-    --font-serif:   "Lora", Georgia, "Times New Roman", serif;
-    --font-sans:    "DM Sans", system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
-    --font-mono:    "IBM Plex Mono", "ui-monospace", Menlo, Consolas, monospace;
+    --font-mono:    "Space Mono", "Courier New", monospace;
+    --font-serif:   "Lora", Georgia, serif;
+    --font-sans:    "Space Mono", "Courier New", monospace;
+    --font-display: "Space Mono", "Courier New", monospace;
     --default-font-family: var(--font-serif);
 
-    /* ── Solemn environmental palette ── */
-    --color-parchment:    #ede8df;
-    --color-parchment-dk: #e0d9cd;
-    --color-ink:          #1a2218;
-    --color-ink-mid:      #2c3a2a;
+    /* ── Slate blue palette around #8E9DCC ── */
+    --color-canvas:    #f2f4fa;
+    --color-surface:   #e8ebf5;
+    --color-ink:       #1c2038;
+    --color-ink-mid:   #2e3455;
+    --color-ink-muted: #5a6080;
 
-    --color-moss:         #3d5c34;
-    --color-moss-dk:      #2a4124;
-    --color-moss-lt:      #8fa882;
-    --color-sage:         #c8d5bf;
-    --color-sage-lt:      #e8eee4;
+    --color-slate:     #8E9DCC;
+    --color-slate-dk:  #5264a0;
+    --color-slate-dkr: #3a4878;
+    --color-slate-lt:  #b0b8e3;
+    --color-slate-mist:#e0e4f5;
 
-    --color-slate:        #1e3040;
-    --color-slate-mid:    #2c4a5c;
-    --color-slate-lt:     #7a99ad;
-    --color-fog:          #dce6ec;
+    --color-border:    rgba(142, 157, 204, 0.25);
+    --color-border-dk: rgba(28, 32, 56, 0.12);
 
-    /* Override Canopy's accent scale with deep moss greens */
-    --color-accent-50:      #f0f4ed;
-    --color-accent-100:     #dce8d6;
-    --color-accent-200:     #b8d0ac;
-    --color-accent-300:     #8aae7c;
-    --color-accent-400:     #638c52;
-    --color-accent-500:     #4a7039;
-    --color-accent-600:     #3d5c2e;
-    --color-accent-700:     #2a4120;
-    --color-accent-800:     #1a2d14;
-    --color-accent-900:     #0e1a0b;
+    /* ── Override Canopy accent scale ── */
+    --color-accent-50:      #f4f5fb;
+    --color-accent-100:     #e8eaf7;
+    --color-accent-200:     #d0d5ee;
+    --color-accent-300:     #b0b8e3;
+    --color-accent-400:     #8E9DCC;
+    --color-accent-500:     #6e7eba;
+    --color-accent-600:     #5264a0;
+    --color-accent-700:     #3a4878;
+    --color-accent-800:     #262f58;
+    --color-accent-900:     #141b38;
     --color-accent-default: var(--color-accent-600);
   }
 }
@@ -54,31 +53,41 @@
 
 @layer base {
   html {
-    font-size: 108%;
+    font-size: 94%;
     font-weight: 400;
-  }
-
-  body {
-    background: var(--color-parchment);
-    color: var(--color-ink);
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  .canopy-logo {
-    font-family: var(--font-display);
-    font-weight: 500;
     letter-spacing: -0.01em;
   }
 
-  h1 { font-size: 2.4rem; line-height: 1.15; }
-  h2 { font-size: 1.7rem; line-height: 1.25; }
-  h3 { font-size: 1.2rem; line-height: 1.35; }
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+  }
+
+  h1, h2, h3, h4, .canopy-logo {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  h1 { font-size: 1.9rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1rem; }
 
   p, li {
     font-family: var(--font-serif);
     line-height: 1.8;
+  }
+
+  /* Animated underline on links — veilobscura style */
+  a {
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--color-slate-lt);
+    transition: text-decoration-color 0.25s ease;
+  }
+
+  a:hover {
+    text-decoration-color: var(--color-slate);
   }
 }

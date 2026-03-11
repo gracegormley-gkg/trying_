@@ -34,5 +34,5 @@ search:
         - tagging
 theme:
   appearance: light
-  accentColor: green
-  grayColor: stone
+  accentColor: indigo
+  grayColor: zinc
