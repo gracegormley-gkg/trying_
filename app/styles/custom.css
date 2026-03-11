@@ -1,7 +1,14 @@
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
    ENVIRONMENTAL IMPACT STATEMENT COLLECTION
    Solemn, scholarly, archival — green & slate blue
-   ═══════════════════════════════════════════════════ */
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Paper grain texture on body ── */
+body {
+  background-color: #ede8df;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.038'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
 
 /* ── Top accent rule ── */
 body::before {
@@ -21,33 +28,53 @@ header.canopy-header,
   margin-top: 3px;
 }
 
+/* ── Work page document band ── */
+.canopy-work--docband {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  margin-top: 1.5rem;
+  border-top: 1px solid #1a2218;
+  border-bottom: 1px solid #1a2218;
+  font-family: var(--font-sans, "DM Sans", sans-serif);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #1a2218;
+}
+
 /* ── Work page — Hero ── */
 .canopy-work--hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: start;
-  padding-top: 2.5rem;
+  padding-top: 2rem;
   padding-bottom: 0;
 }
 
+/* Inner-framed archival viewer */
 .canopy-work--viewer {
   min-width: 0;
-  border: 1px solid var(--color-parchment-dk, #e0d9cd);
-  box-shadow: 4px 4px 0 #c8c0b4;
+  background: #e0d9cd;
+  padding: 7px;
+  border: 2px solid #2a4120;
+  box-shadow: 5px 5px 0 #8fa882;
 }
 
 .canopy-work--header {
   min-width: 0;
-  padding-top: 0.25rem;
+  padding-top: 0.5rem;
 }
 
 /* Title */
 .canopy-work--header h1 {
-  font-size: 2rem;
+  font-size: 2.1rem;
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: var(--color-ink, #1a2218);
+  color: #1a2218;
   font-style: italic;
 }
 
@@ -58,31 +85,44 @@ header.canopy-header,
   flex-wrap: wrap;
   margin-bottom: 1.25rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--color-parchment-dk, #e0d9cd);
+  border-bottom: 1px solid #e0d9cd;
 }
 
 .canopy-work--byline > * {
   display: inline-flex;
   align-items: center;
   background: transparent;
-  color: var(--color-moss, #3d5c34);
-  border: 1px solid var(--color-moss-lt, #8fa882);
+  color: #3d5c34;
+  border: 1px solid #8fa882;
   border-radius: 2px;
-  padding: 0.15rem 0.6rem;
-  font-size: 0.75rem;
+  padding: 0.15rem 0.65rem;
+  font-size: 0.72rem;
   font-family: var(--font-sans, "DM Sans", sans-serif);
   font-weight: 400;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
-/* Summary */
+/* Summary — pull quote with opening mark */
 p.canopy-work--summary {
   font-family: var(--font-serif, "Lora", serif);
   font-size: 1rem;
   line-height: 1.85;
-  color: var(--color-ink-mid, #2c3a2a);
+  color: #2c3a2a;
   font-style: italic;
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+p.canopy-work--summary::before {
+  content: "\201C";
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: #c8d5bf;
+  position: absolute;
+  left: -0.1rem;
+  top: -0.15rem;
 }
 
 @media (max-width: 768px) {
@@ -92,22 +132,59 @@ p.canopy-work--summary {
   }
 }
 
+/* ── Ornamental section divider ── */
+.canopy-work--ornament {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem 0 0.5rem;
+  color: #8fa882;
+  font-family: var(--font-sans, "DM Sans", sans-serif);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.canopy-work--ornament::before,
+.canopy-work--ornament::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #c8d5bf;
+}
+
+.canopy-work--ornament::before { background: linear-gradient(90deg, transparent, #c8d5bf); }
+.canopy-work--ornament::after  { background: linear-gradient(90deg, #c8d5bf, transparent); }
+
 /* ── Historical Context ── */
 .canopy-work--context {
-  margin-top: 2.5rem;
+  margin-top: 0.5rem;
   padding: 2rem 2rem 2rem 2.25rem;
-  background: var(--color-sage-lt, #e8eee4);
-  border-left: 3px solid var(--color-moss, #3d5c34);
+  background: #e8eee4;
+  border-left: 3px solid #3d5c34;
+}
+
+/* Drop cap on first paragraph */
+.canopy-work--context .canopy-metadata-field p:first-of-type::first-letter {
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-size: 4.2rem;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 0.78;
+  float: left;
+  margin-right: 0.06em;
+  margin-top: 0.1em;
+  color: #3d5c34;
 }
 
 .canopy-work--context .canopy-metadata-field h3 {
   font-family: var(--font-sans, "DM Sans", sans-serif);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-moss, #3d5c34);
-  margin-bottom: 1rem;
+  color: #3d5c34;
+  margin-bottom: 1.1rem;
 }
 
 .canopy-work--context .canopy-metadata-field p {
@@ -115,7 +192,7 @@ p.canopy-work--summary {
   font-size: 0.98rem;
   line-height: 1.9;
   max-width: 76ch;
-  color: var(--color-ink, #1a2218);
+  color: #1a2218;
 }
 
 /* ── People + Attribution ── */
@@ -125,17 +202,17 @@ p.canopy-work--summary {
   gap: 3rem;
   padding-top: 2.5rem;
   padding-bottom: 2rem;
-  border-top: 1px solid var(--color-parchment-dk, #e0d9cd);
+  border-top: 1px solid #e0d9cd;
   margin-top: 0.5rem;
 }
 
 .canopy-work--footer-grid .canopy-metadata-field h3 {
   font-family: var(--font-sans, "DM Sans", sans-serif);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-slate, #1e3040);
+  color: #1e3040;
   margin-bottom: 0.75rem;
 }
 
@@ -145,11 +222,11 @@ p.canopy-work--summary {
   font-family: var(--font-serif, "Lora", serif);
   font-size: 0.92rem;
   line-height: 1.9;
-  color: var(--color-ink-mid, #2c3a2a);
+  color: #2c3a2a;
 }
 
 .canopy-work--footer-grid .canopy-metadata-field ul li {
-  border-bottom: 1px dotted var(--color-sage, #c8d5bf);
+  border-bottom: 1px dotted #c8d5bf;
   padding: 0.2rem 0;
 }
 
@@ -162,42 +239,64 @@ p.canopy-work--summary {
 
 /* ── Related Items ── */
 .canopy-work--related {
-  border-top: 1px solid var(--color-parchment-dk, #e0d9cd);
+  border-top: 1px solid #e0d9cd;
   padding-top: 2.5rem;
 }
 
 .canopy-work--related h2 {
   font-family: var(--font-sans, "DM Sans", sans-serif);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-slate-mid, #2c4a5c);
+  color: #2c4a5c;
   border-bottom: none;
   padding-bottom: 0;
   margin-bottom: 1.5rem;
 }
 
-/* ── Footer ── */
+/* ── Footer with topographic contour pattern ── */
 footer.canopy-footer,
 [class*="canopy-footer"] {
-  border-top: 1px solid var(--color-parchment-dk, #e0d9cd);
-  background: var(--color-ink, #1a2218);
+  border-top: 1px solid #e0d9cd;
+  background-color: #1a2218;
+  background-image:
+    repeating-radial-gradient(
+      ellipse at 20% 65%,
+      transparent 0,
+      transparent 38px,
+      rgba(143, 168, 130, 0.09) 38px,
+      rgba(143, 168, 130, 0.09) 39px
+    ),
+    repeating-radial-gradient(
+      ellipse at 78% 35%,
+      transparent 0,
+      transparent 28px,
+      rgba(143, 168, 130, 0.07) 28px,
+      rgba(143, 168, 130, 0.07) 29px
+    ),
+    repeating-radial-gradient(
+      ellipse at 50% 90%,
+      transparent 0,
+      transparent 50px,
+      rgba(44, 74, 92, 0.12) 50px,
+      rgba(44, 74, 92, 0.12) 51px
+    );
 }
 
 [class*="canopy-footer"] p,
 [class*="canopy-footer"] a {
-  color: var(--color-moss-lt, #8fa882);
+  color: #8fa882;
   font-family: var(--font-sans, "DM Sans", sans-serif);
-  font-size: 0.82rem;
-  letter-spacing: 0.03em;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
 }
 
 [class*="canopy-footer"] a:hover {
-  color: var(--color-sage, #c8d5bf);
+  color: #c8d5bf;
 }
 
-/* ── Search result cards: subtle hover ── */
+/* ── Search result cards ── */
 [class*="canopy-work-card"],
 [class*="canopy-figure"] {
   transition: box-shadow 0.2s ease;

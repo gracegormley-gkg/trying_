@@ -9,6 +9,14 @@ import {
   References,
 } from "@canopy-iiif/app/ui/server";
 
+{/* ── Document band ── */}
+<Container variant="wide">
+  <div className="canopy-work--docband">
+    <span>Environmental Impact Statement Collection</span>
+    <span>National Environmental Policy Act Archive</span>
+  </div>
+</Container>
+
 {/* ── Hero: viewer left, title/location/summary right ── */}
 <Container variant="wide">
   <div className="canopy-work--hero">
@@ -25,6 +33,11 @@ import {
       <Summary manifest={props.manifest} as="p" className="canopy-work--summary" />
     </div>
   </div>
+</Container>
+
+{/* ── Ornament ── */}
+<Container>
+  <div className="canopy-work--ornament">§</div>
 </Container>
 
 {/* ── Historical Context ── */}
