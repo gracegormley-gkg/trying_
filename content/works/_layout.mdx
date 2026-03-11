@@ -9,7 +9,7 @@ import {
   References,
 } from "@canopy-iiif/app/ui/server";
 
-{/* ── Hero: viewer on left, title/location/summary on right ── */}
+{/* ── Hero: viewer left, title/location/summary right ── */}
 <Container variant="wide">
   <div className="canopy-work--hero">
     <div className="canopy-work--viewer">
@@ -19,19 +19,22 @@ import {
       <Label manifest={props.manifest} as="h1" />
       <div className="canopy-work--byline">
         <MetadataField manifest={props.manifest} field="Main Location" display="inline" />
-        <MetadataField manifest={props.manifest} field="Completed" display="inline" prefix="Completed: " />
+        <MetadataField manifest={props.manifest} field="Completed" display="inline" prefix="Completed " />
+        <MetadataField manifest={props.manifest} field="Themes" display="inline" />
       </div>
       <Summary manifest={props.manifest} as="p" className="canopy-work--summary" />
     </div>
   </div>
 </Container>
 
-{/* ── Historical Context: spans the page ── */}
-<Container className="canopy-work--context">
-  <MetadataField manifest={props.manifest} field="Historical Context" label="Historical Context" />
+{/* ── Historical Context ── */}
+<Container>
+  <div className="canopy-work--context">
+    <MetadataField manifest={props.manifest} field="Historical Context" label="Historical Context" />
+  </div>
 </Container>
 
-{/* ── People + Attribution: two columns ── */}
+{/* ── People + Attribution ── */}
 <Container className="canopy-work--footer-grid">
   <div>
     <MetadataField manifest={props.manifest} field="Key People" label="Key People" />
@@ -43,7 +46,7 @@ import {
 </Container>
 
 {/* ── Related Items ── */}
-<Container>
+<Container className="canopy-work--related">
   <h2>Related Items</h2>
   <RelatedItems iiifContent={props.manifest.id} top={3} />
 </Container>

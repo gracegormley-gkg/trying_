@@ -1,56 +1,91 @@
-/**
- * Example custom color variables
- * @see https://canopy-iiif.github.io/app/docs/theming/tailwind#custom
- */
+/* ─────────────────────────────────────────────
+   ENVIRONMENTAL IMPACT STATEMENT COLLECTION
+   Custom styles — green + blue environmental theme
+   ───────────────────────────────────────────── */
 
-/* @layer properties {
-  :root,
-  :host {
-    --color-northwestern-purple: #4e2a84;
-    --color-accent-700: var(--color-northwestern-purple);
-    --color-accent-default: var(--color-northwestern-purple);
-  }
-} */
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
 
-/* ── Work page layout ── */
+/* ── Site-wide accent stripe ── */
+body::before {
+  content: "";
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, #059669 0%, #0ea5e9 60%, #0c4a6e 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
 
-/* Hero: viewer left, text right */
+/* Nudge header down so it clears the stripe */
+header.canopy-header,
+[class*="canopy-header"] {
+  margin-top: 4px;
+}
+
+/* ── Hero section ── */
 .canopy-work--hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: start;
-  padding-top: 1.5rem;
+  padding-top: 2rem;
   padding-bottom: 0;
 }
 
 .canopy-work--viewer {
-  min-width: 0; /* prevent overflow in grid */
+  min-width: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(5, 150, 105, 0.12), 0 1px 4px rgba(0,0,0,0.08);
 }
 
 .canopy-work--header {
   min-width: 0;
+  padding-top: 0.5rem;
 }
 
+/* Title */
 .canopy-work--header h1 {
-  margin-bottom: 0.25rem;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  color: #0f3d2e;
 }
 
-/* Location • Completed row */
+/* ── Byline pills ── */
 .canopy-work--byline {
   display: flex;
-  gap: 1.5rem;
-  font-size: 0.9rem;
-  color: var(--color-gray-500, #6b7280);
-  margin-bottom: 0.75rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
-/* Summary text — readable but not oversized */
+.canopy-work--byline > * {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Summary text */
 p.canopy-work--summary {
   font-size: 1rem;
-  line-height: 1.6;
-  margin-top: 0.5rem;
+  line-height: 1.7;
+  margin-top: 0.25rem;
+  color: #2d4a3e;
+  border-left: 3px solid #6ee7b7;
+  padding-left: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -59,48 +94,131 @@ p.canopy-work--summary {
   }
 }
 
-/* Historical Context — full page width */
+/* ── Divider between sections ── */
+.canopy-work--divider {
+  border: none;
+  border-top: 1px solid #d1fae5;
+  margin: 0;
+}
+
+/* ── Historical Context ── */
 .canopy-work--context {
   padding-top: 2rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
+  background: linear-gradient(180deg, #f0fdf4 0%, #f8fbf9 100%);
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  border-left: 4px solid #059669;
 }
 
 .canopy-work--context .canopy-metadata-field h3 {
-  font-size: 1.2rem;
+  font-size: 0.7rem;
+  font-family: var(--font-sans);
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #059669;
+  margin-bottom: 0.75rem;
 }
 
 .canopy-work--context .canopy-metadata-field p {
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.8;
   max-width: 80ch;
+  color: #1c2b25;
 }
 
-/* People + Attribution — two columns */
+/* ── People + Attribution grid ── */
 .canopy-work--footer-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .canopy-work--footer-grid .canopy-metadata-field h3 {
-  font-size: 1rem;
+  font-size: 0.7rem;
+  font-family: var(--font-sans);
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0369a1;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #bae6fd;
 }
 
 .canopy-work--footer-grid .canopy-metadata-field ul {
-  list-style: disc;
-  padding-left: 1.25rem;
+  list-style: none;
+  padding-left: 0;
   font-size: 0.95rem;
-  line-height: 1.7;
+  line-height: 1.9;
+  color: #1c2b25;
+}
+
+.canopy-work--footer-grid .canopy-metadata-field ul li::before {
+  content: "·";
+  color: #0ea5e9;
+  font-weight: 700;
+  margin-right: 0.5rem;
 }
 
 @media (max-width: 640px) {
   .canopy-work--footer-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ── Related Items heading ── */
+.canopy-work--related h2 {
+  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #059669;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Homepage: hero section ── */
+.canopy-interstitials--hero {
+  background: linear-gradient(135deg, #0f3d2e 0%, #0c4a6e 100%) !important;
+}
+
+/* ── Search / results grid cards ── */
+[class*="canopy-work-card"],
+[class*="canopy-figure"] {
+  border-radius: 0.4rem;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+[class*="canopy-work-card"]:hover,
+[class*="canopy-figure"]:hover {
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.18);
+  transform: translateY(-2px);
+}
+
+/* ── Footer ── */
+footer.canopy-footer,
+[class*="canopy-footer"] {
+  border-top: 1px solid #d1fae5;
+  background: #0f3d2e;
+  color: #d1fae5;
+}
+
+[class*="canopy-footer"] p,
+[class*="canopy-footer"] a {
+  color: #6ee7b7;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+}
+
+[class*="canopy-footer"] a:hover {
+  color: #ffffff;
 }

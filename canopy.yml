@@ -34,5 +34,5 @@ search:
         - tagging
 theme:
   appearance: light
-  accentColor: indigo
-  grayColor: slate
+  accentColor: teal
+  grayColor: stone
